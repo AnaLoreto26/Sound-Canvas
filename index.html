@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound Canvas</title>
+    
+    <script src="p5.js"></script>
+    <script src="p5.sound.js"></script>
+    <script defer src="java.js"></script>
+
+    <style>
+        @font-face {
+            font-family: Nonbureau Light;
+            src: url("fonts/NonBureau-Thin.otf") format("truetype");
+        }
+
+        @font-face {
+            font-family: Nonbureau Regular;
+            src: url("fonts/NonBureau-Regular.otf") format("truetype");
+        }
+
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: black;
+            color: white;
+            font-family: Nonbureau Regular;
+            display: flex;
+        }
+
+        #button-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            background-color: #eeeeee;
+            color: rgb(36, 36, 36);
+            border: none;
+            padding: 3px 18px;
+            font-size: 18px;
+            border-radius: 20px;
+            margin: 15px 5px;
+            font-family: Nonbureau Regular;
+            font-weight: 200;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: rgb(201, 200, 200);
+        }
+
+        h1 {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            font-family: Nonbureau Light, sans-serif;
+            font-weight: normal;
+            color: #eeeeee;
+            font-size: 90px;
+            margin: 0;
+            padding: 5px;
+        }
+
+        /* Botão activate microfone*/
+        .mic-btn {
+         
+            color: white;
+            background-color: black;
+            padding: 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .mic-btn:hover{
+         
+         color: rgb(201, 200, 200);
+         background-color: black; 
+       
+     }
+       
+        /* Botão no canto superior direito */
+        #toggleTitleButton {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+          background: transparent;
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #toggleTitleButton:hover {
+          color: rgb(201, 200, 200);
+        }
+
+        /* Estilos quando o título está oculto */
+        .hidden-buttons button {
+            background: transparent !important;
+            color: white !important;
+            border: 1px solid white !important;
+        }
+
+        
+        /* Botão "about" */
+        #aboutButton {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            Color: #eeeeee;
+            background: transparent;
+            font-size: 16px;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Texto do about */
+        #aboutText {
+            position: fixed;
+            top: 70px;
+            left: 30px;
+            width: 270px;
+            font-size: 14px;
+            color: white;
+            font-family: Nonbureau Regular;
+            font-weight: lighter;
+            letter-spacing: 0.5px;
+            display: none; /* Oculto por padrão */
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">SOUND CANVAS</h1>
+
+    <!-- Botões no topo -->
+    <button id="aboutButton">About</button>
+    <button id="toggleTitleButton">No title</button>
+
+    <!-- Texto do about -->
+    <div id="aboutText">
+        <p>Have you ever wondered what our breath—or even the "silence"—looks like? <br> Have you ever seen your own voice?<br><br>
+        Sound Canvas transforms sound frequencies into visual forms by combining variable parameters with volume, pitch, and rhythm.<br><br>
+        This experimental project sparks curiosity and invites us to perceive sound in different ways, allowing us to see what we hear—or sometimes what we don’t.<br><br>
+        It encourages us to explore the complexity of our voices, instruments, music, or any audible object around us.<br><br><br>
+        Ana Loreto, 2025</p>
+    </div>
+
+    <div id="button-container"></div>
+</body>
+</html>
